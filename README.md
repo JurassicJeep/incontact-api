@@ -15,7 +15,7 @@ PHP client library for the [inContact API](https://developer.incontact.com/api/)
 require __DIR__ . '/vendor/autoload.php';
 
 // Create an API client instance.
-$inContact = new \antsar\incontact\InContact(
+$inContact = new \antsar\InContact\InContact(
     'exampleApp',       // Application Name as registered with inContact
     'exampleCompany',   // Vendor Name as registered with inContact
     '012345',           // Business Unit number as registered with inContact
@@ -25,6 +25,9 @@ $inContact = new \antsar\incontact\InContact(
 
 // Get status for all agents
 $agents = $inContact->get('/agents/states');
+
+// Search for a specific agent
+$agents = $inContact->get('/agents', ['searchString' => 'testuser', 'fields' => 'userName']);
 
 // Request a call-back
 $response = $inContact->post('/queuecallback', ['phoneNumber' => '8005550100']);

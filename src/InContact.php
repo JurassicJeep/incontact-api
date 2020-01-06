@@ -215,9 +215,9 @@ class InContact
      *
      * @api
      */
-    public function get($api_url)
+    public function get($api_url, $data)
     {
-        return $this->request($api_url, 'GET');
+        return $this->request($api_url, 'GET', $data);
     }
 
     /**
